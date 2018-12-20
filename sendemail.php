@@ -6,8 +6,8 @@
     header( 'Content-type: application/json' );
 
 
-    $to             = 'domainepuechmerle@wanadoo.fr';
-    $email_template = 'simple.html';
+    $to             = 'contact@domainepuechmerle.com';
+    $email_template = '/email-templates/simple.html';
 
     $subject    = "SUBJECT";
     $email      = strip_tags($_POST['email']);
