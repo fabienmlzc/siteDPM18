@@ -7,9 +7,9 @@
 
 
     $to             = 'contact@domainepuechmerle.com';
-    $email_template = '/email-templates/simple.html';
+    $email_template = 'email-templates/simple.html';
 
-    $subject    = "SUBJECT";
+    $subject    = "Email depuis le site internet";
     $email      = strip_tags($_POST['email']);
     $name       = strip_tags($_POST['name']);
     $message    = nl2br( htmlspecialchars($_POST['message'], ENT_QUOTES) );
@@ -60,7 +60,7 @@
     if ( mail( $to, $subject, $contents, $headers ) ) {
         $result = array( 'response' => 'success', 'message'=>'<strong>Super !</strong> Votre email est envoyé.' );
     } else {
-        $result = array( 'response' => 'error', 'message'=>'<strong>Aie !</strong> Email non envoyé.'  );
+        $result = array( 'response' => 'error', 'message'=>'<strong>Aie !</strong> Email non envoyé.' );
     }
 
     echo json_encode( $result );
