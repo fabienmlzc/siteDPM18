@@ -7,7 +7,7 @@
 
 
     $to             = 'contact@domainepuechmerle.com';
-    $email_template = 'email-templates/simple.html';
+    $email_template = '/email-templates/simple.html';
 
     $subject    = "Email depuis le site internet";
     $email      = strip_tags($_POST['email']);
@@ -18,21 +18,21 @@
 
     if(empty($name)){
 
-        $result = array( 'response' => 'error', 'empty'=>'name', 'message'=>'<strong>Erreur</strong>, pas de nom.' );
+        $result = array( 'response' => 'error', 'empty'=>'name', 'message'=>'Erreur, il manque votre nom.' );
         echo json_encode($result );
         die;
     } 
 
     if(empty($email)){
 
-        $result = array( 'response' => 'error', 'empty'=>'email', 'message'=>'<strong>Erreur</strong>, email manquant.' );
+        $result = array( 'response' => 'error', 'empty'=>'email', 'message'=>'Erreur, votre email est manquant.' );
         echo json_encode($result );
         die;
     } 
 
     if(empty($message)){
 
-         $result = array( 'response' => 'error', 'empty'=>'message', 'message'=>'<strong>Erreur</strong>, texte manquant.' );
+         $result = array( 'response' => 'error', 'empty'=>'message', 'message'=>'Erreur, votre texte est manquant.' );
          echo json_encode($result );
          die;
     }
@@ -58,9 +58,9 @@
     $contents =  strtr($templateContents, $templateTags);
 
     if ( mail( $to, $subject, $contents, $headers ) ) {
-        $result = array( 'response' => 'success', 'message'=>'<strong>Super !</strong> Votre email est envoyé.' );
+        $result = array( 'response' => 'success', 'message'=>'Super ! Votre email est bien envoyé.' );
     } else {
-        $result = array( 'response' => 'error', 'message'=>'<strong>Aie !</strong> Email non envoyé.' );
+        $result = array( 'response' => 'error', 'message'=>'Aie ! Email non envoyé.' );
     }
 
     echo json_encode( $result );
