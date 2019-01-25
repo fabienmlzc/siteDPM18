@@ -1,0 +1,6 @@
+# R1
+User-agent: Googlebot-Image
+Disallow: images/vineyards-3597741.jpg
+
+# R2
+Disallow: /simple.html
